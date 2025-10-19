@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Cloning github repo') {
+        stage('Clone repository') {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ygminds73/Terraform-Automation.git']])
+                // Use the same repository that triggered this pipeline
+                checkout scm
             }
         }
     
